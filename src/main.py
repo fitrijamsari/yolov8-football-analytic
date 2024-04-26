@@ -34,7 +34,8 @@ def main():
 
     # Initialize Tracker
     logger.info("Initializing tracker")
-    tracker = Tracker("../models/best.pt")
+    best_model_path = config["directory"]["model"]
+    tracker = Tracker(best_model_path)
 
     tracks = tracker.get_object_tracks(
         video_frames, read_from_stub=True, stub_path="stubs/track_stubs.pkl"

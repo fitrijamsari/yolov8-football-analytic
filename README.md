@@ -55,11 +55,32 @@ To run this project, you need to have the following requirements installed:
 
 To run this demo project, create an virtual environment and install the src package:
 
-1. create .env files with the following secret keys:
+1. Download the model and copy in models/ folder:
+
+[model](https://drive.google.com/file/d/1twOHbFMvx1JdGQ5AjD8qBS8E2Ssnl42x/view?usp=drive_link)
+
+2. Download the sample video for the project and copy in input_videos/ folder:
+
+[model](https://drive.google.com/file/d/12cHGWmtQwTE6tP9PFvjP1Vg9CBPYkRg5/view?usp=drive_link)
+
+3. create .env files with the following secret keys:
 
 ```bash
+ENV=dev
+CONFIG_PATH=
 ROBOFLOW_API_KEY=
 ```
+
+4. Edit config/config.yaml accordingly
+
+```bash
+directory:
+  input_video:
+  output_video:
+  model:
+```
+
+5. Setup the project
 
 ```bash
 # install src package in development mode to install setup.py
@@ -69,7 +90,7 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
-Run the main program:
+6. Run the main program:
 
 ```bash
 python src/main.py
@@ -78,6 +99,7 @@ python src/main.py
 ## Challanges and Recommendation
 
 - Camera movement: Unable to plot view perspective consistently. Better if I can get football tactical video with wide angle view and fixed camera.
+- The pixel coordinate for the perspective transformation is hard coded in view_transformer.py: recommended to create a seperate script to enable allocation of pixel points, and the values should be put in config.yaml
 
 ## Future Improvement
 

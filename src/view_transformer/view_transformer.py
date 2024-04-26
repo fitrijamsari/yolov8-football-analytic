@@ -7,7 +7,7 @@ class ViewTransformer:
         field_width = 68
         field_length = 23.82
 
-        # TODO: Create script to get pixel value from images or videos by clicking
+        # TODO: Create script to get pixel value from images or videos by clicking, this value should be put in config.yaml
         self.pixel_vertices = np.array(
             [[110, 1035], [265, 275], [910, 260], [1640, 915]]
         )  # bottom left, top left, top right, bottom right
