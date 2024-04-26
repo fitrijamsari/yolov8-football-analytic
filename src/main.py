@@ -1,6 +1,8 @@
 import logging
+import os
 
 import numpy as np
+from dotenv import load_dotenv
 
 from camera_movement_estimator import CameraMovementEstimator
 from player_ball_assigner import PlayerBallAssigner
@@ -8,8 +10,11 @@ from speed_distance_estimator import SpeedDistanceEstimator
 from src.logging_conf import setup_logging
 from team_assigner import TeamAssigner
 from trackers import Tracker
-from utils import read_video, save_video
+from utils import load_config, read_video, save_video
 from view_transformer import ViewTransformer
+
+load_dotenv()
+CONFIG_PATH = os.getenv("CONFIG_PATH")
 
 
 def main():
@@ -17,9 +22,15 @@ def main():
     setup_logging()
     logger = logging.getLogger(__name__)
 
+    # Load Config
+    logger.info("Loading config yaml file")
+    config = load_config(CONFIG_PATH)
+
     # Read Video
     logger.info("Reading video")
-    video_frames = read_video("../input_videos/bundesliga_video.mp4")
+    # input_video_path = "../input_videos/bundesliga_video.mp4"
+    input_video_path = config["directory"]["input_video"]
+    video_frames = read_video(input_video_path)
 
     # Initialize Tracker
     logger.info("Initializing tracker")
@@ -115,7 +126,9 @@ def main():
 
     # Save Video
     logger.info("Saving video")
-    save_video(output_video_frames, "../output_videos/bundesliga_video_output.mp4")
+    # output_video_path = "../output_videos/bundesliga_video_output.mp4"
+    output_video_path = config["directory"]["output_video"]
+    save_video(output_video_frames, output_video_path)
 
     logger.info("Programm Finished")
 

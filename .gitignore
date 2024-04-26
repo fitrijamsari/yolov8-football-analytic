@@ -65,6 +65,7 @@ maildir
 
 #Folders
 runs/
+logs/
 input_videos/bundesliga_video.mp4
 input_videos/World-Cup-2022-Spain-Costa-Rica.mp4
 output_videos/bundesliga_video_output.mp4

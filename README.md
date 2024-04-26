@@ -51,13 +51,37 @@ To run this project, you need to have the following requirements installed:
 - Matplotlib
 - Pandas
 
+## Getting started
+
+To run this demo project, create an virtual environment and install the src package:
+
+1. create .env files with the following secret keys:
+
+```bash
+ROBOFLOW_API_KEY=
+```
+
+```bash
+# install src package in development mode to install setup.py
+pip install -e .
+
+# install dependencies in requirements.txt file
+pip install -r requirements.txt
+```
+
+Run the main program:
+
+```bash
+python src/main.py
+```
+
 ## Challanges and Recommendation
 
 - Camera movement: Unable to plot view perspective consistently. Better if I can get football tactical video with wide angle view and fixed camera.
 
 ## Future Improvement
 
-- [ ] Move code into src folder
-- [ ] Setup logging
-- [ ] Add config.yaml for all global variables and configuration variables
+- [x] Move code into src folder
+- [x] Setup logging
+- [x] Add config.yaml for all global variables and configuration variables
 - [ ] Draw and display player movement as top view grid map.

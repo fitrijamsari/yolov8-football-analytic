@@ -5,4 +5,5 @@ from .bbox_utils import (
     measure_euclidean_distance,
     measure_xy_distance,
 )
+from .common_utils import load_config
 from .video_utils import read_video, save_video
